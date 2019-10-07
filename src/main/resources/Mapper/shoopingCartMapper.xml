@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.org.ssm.Mapper.shoppingCartMapper">
+     <insert id="insertIntoShoppingCart" parameterType="com.org.ssm.Pojo.shoppingCart">
+         insert  into shoppingCart(s_uid,s_gid) values(#{sUid},#{sGid})
+     </insert>
+    <select id="showAllShoppingGoods" resultType="com.org.ssm.Pojo.shoppingCart" >
+        select * from  shoppingCart
+    </select>
+    <delete id="delShoppingGoodsByGid" parameterType="java.lang.Integer">
+        delete from shoppingCart where s_gid=#{sGid}
+    </delete>
+</mapper>

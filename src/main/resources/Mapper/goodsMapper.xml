@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.org.ssm.Mapper.goodsMapper">
+    <insert id="addGoods" parameterType="com.org.ssm.Pojo.goods">
+        insert into goods(g_name,g_price,g_store,g_pageView,g_image) values(#{gName},#{gPrice},#{gStore},#{gPageView},#{gImage})
+    </insert>
+    <select id="showAllGoods" resultType="com.org.ssm.Pojo.goods">
+        select * from goods
+    </select>
+    <delete id="delGoodById" parameterType="java.lang.Integer">
+        delete  from goods where g_id=#{gId}
+    </delete>
+    <select id="showOneGoodsById" resultType="com.org.ssm.Pojo.goods" parameterType="java.lang.Integer">
+        select * from goods where g_id=#{gId}
+    </select>
+    <update id="updateGoodsById" parameterType="com.org.ssm.Pojo.goods">
+        update goods set g_name=#{gName},g_price=#{gPrice},g_store=#{gStore},g_pageView=#{gPageView},g_image=#{gImage}
+        where g_id=#{gId}
+    </update>
+</mapper>
